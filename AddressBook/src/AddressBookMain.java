@@ -11,6 +11,8 @@ import java.util.*;
  * array of contact object created to store value of multiple contacts
  * function readContactDetails to read contact details
  * function displayContactDetails to display contact details
+ * switch case menu options for user to decide whether to enter,edit or display contacts
+ * and while editing it asks which field to be edited and displays the updated contact
  */
 public class AddressBookMain 
 {
@@ -43,39 +45,105 @@ public class AddressBookMain
 	public static void main(String[] args) 
 	{	
 		System.out.println("Welcome to Address Book Program");
-		System.out.println("Enter number of contacts to add in address book:");
 		Scanner reader=new Scanner(System.in);
-		int totalContacts=reader.nextInt();
-		reader.nextLine();
+		int i=0,totalContacts=0,choice=1;
 		String firstName="",lastName="",address="",city="",state="",email="",zip="",phoneNumber="";
 		AddressBookMain [] contact=new AddressBookMain[10];
-		for(int i=0;i<totalContacts;i++)
+		while(choice!=4)
 		{
-			
-			System.out.println("Enter contact details:");
-			System.out.print("First Name:");
-			firstName=reader.nextLine();
-			System.out.print("Last Name:");
-			lastName=reader.nextLine();
-			System.out.print("Address:");
-			address=reader.nextLine();
-			System.out.print("City:");
-			city=reader.nextLine();
-			System.out.print("State:");
-			state=reader.nextLine();
-			System.out.print("Zip:");
-			zip=reader.nextLine();
-			System.out.print("Email:");
-			email=reader.nextLine();
-			System.out.print("Phone Number:");
-			phoneNumber=reader.nextLine();
-			
-			contact[i]=new AddressBookMain(firstName, lastName, address, city, state, email, zip, phoneNumber);
+			System.out.println("Enter choice to\n1.Enter Contact\n2.Edit Contact\n3.Display Contacts\n4.Exit");
+			choice=reader.nextInt();
+			reader.nextLine();
+			switch(choice)
+			{
+				case 1:if(i<10)
+					   {
+					   		System.out.println("Enter contact details:"+(i+1));
+					   		System.out.print("First Name:");
+					   		firstName=reader.nextLine();
+					   		System.out.print("Last Name:");
+					   		lastName=reader.nextLine();
+					   		System.out.print("Address:");
+					   		address=reader.nextLine();
+					   		System.out.print("City:");
+					   		city=reader.nextLine();
+					   		System.out.print("State:");
+					   		state=reader.nextLine();
+					   		System.out.print("Zip:");
+					   		zip=reader.nextLine();
+					   		System.out.print("Email:");
+					   		email=reader.nextLine();
+					   		System.out.print("Phone Number:");
+					   		phoneNumber=reader.nextLine();
+				
+					   		contact[i]=new AddressBookMain(firstName, lastName, address, city, state, email, zip, phoneNumber);
+					   		i++;
+					   		totalContacts++;
+					   }
+					   break;
+				case 2:System.out.println("Enter contact number to edit it's detail");
+					   int contactNumber=reader.nextInt();
+					   contactNumber-=1;
+					   System.out.println("Enter field to be edited:\n1.First Name\n2.Last Name\n3.Address\n4.City\n"
+					   		+ "5.State\n6.Email\n7.Zip\n8.PhoneNumber");
+					   int field=reader.nextInt();
+					   reader.nextLine();
+					   if(field==1)
+					   {
+						   System.out.println("Enter new First name");
+						   contact[contactNumber].firstName=reader.nextLine();
+					   }
+					   else if(field==2)
+					   {
+						   System.out.println("Enter new Last name");
+						   contact[contactNumber].lastName=reader.nextLine();
+					   } 
+					   else if(field==3)
+					   {
+						   System.out.println("Enter new Address");
+						   contact[contactNumber].address=reader.nextLine();
+					   }
+					   else if(field==4)
+					   {
+						   System.out.println("Enter new City name");
+						   contact[contactNumber].city=reader.nextLine();
+					   }
+					   else if(field==5)
+					   {
+						   System.out.println("Enter new City name");
+						   contact[contactNumber].state=reader.nextLine();
+					   }
+					   else if(field==6)
+					   {
+						   System.out.println("Enter new Email address");
+						   contact[contactNumber].email=reader.nextLine();
+					   }
+					   else if(field==7)
+					   {
+						   System.out.println("Enter new ZIP code");
+						   contact[contactNumber].zip=reader.nextLine();
+					   }
+					   else if(field==8)
+					   {
+						   System.out.println("Enter new Phone number");
+						   contact[contactNumber].phoneNumber=reader.nextLine();
+					   }
+					   else
+						   System.out.println("Enter a valid field");
+					   System.out.print("Updated ");
+					   contact[contactNumber].displayContactDetails();
+					   break;
+				case 3:for(i=0;i<totalContacts;i++)
+					   {
+							System.out.println("Contact detail of:"+(i+1));
+							contact[i].displayContactDetails();
+					   }
+					   break;
+				case 4:
+				default:System.exit(0);
+			}
 		}
+		
 		reader.close();
-		for(int i=0;i<totalContacts;i++)
-		{
-			contact[i].displayContactDetails();
-		}
 	}
 }
