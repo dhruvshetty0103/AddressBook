@@ -14,9 +14,9 @@ import java.util.*;
  */
 public class AddressBookMain 
 {
-	public String firstName=" ",lastName=" ",address=" ",city=" ",state=" ",email=" ",zip=" ",phoneNumber=" ";
+	private String firstName,lastName,address,city,state,email,zip,phoneNumber;
 	
-	void readContactDetails(String firstName,String lastName,String address,String city,String state,String email,String zip,String phoneNumber)
+	public AddressBookMain(String firstName,String lastName,String address,String city,String state,String email,String zip,String phoneNumber)
 	{
 		this.firstName=firstName;
 		this.lastName=lastName;
@@ -28,12 +28,12 @@ public class AddressBookMain
 		this.phoneNumber=phoneNumber;
 	}
 	
-	void displayContactDetails(String firstName,String lastName,String address,String city,String state,String email,String zip,String phoneNumber)
+	void displayContactDetails()
 	{
 		System.out.println("Contact details are:");
 		System.out.println("First Name:"+firstName);
 		System.out.println("Last Name:"+lastName);
-		System.out.print("Address:"+address);
+		System.out.println("Address:"+address);
 		System.out.println("City:"+city);
 		System.out.println("State:"+state);
 		System.out.println("Zip:"+zip);
@@ -45,8 +45,8 @@ public class AddressBookMain
 		System.out.println("Welcome to Address Book Program");
 		System.out.println("Enter number of contacts to add in address book:");
 		Scanner reader=new Scanner(System.in);
-		Scanner reader1=new Scanner(System.in).useDelimiter("\n");//This delimiter used to avoid space as delimiter in address
 		int totalContacts=reader.nextInt();
+		reader.nextLine();
 		String firstName="",lastName="",address="",city="",state="",email="",zip="",phoneNumber="";
 		AddressBookMain [] contact=new AddressBookMain[10];
 		for(int i=0;i<totalContacts;i++)
@@ -54,30 +54,28 @@ public class AddressBookMain
 			
 			System.out.println("Enter contact details:");
 			System.out.print("First Name:");
-			firstName=reader.next();
+			firstName=reader.nextLine();
 			System.out.print("Last Name:");
-			lastName=reader.next();
+			lastName=reader.nextLine();
 			System.out.print("Address:");
-			address=reader1.next();
+			address=reader.nextLine();
 			System.out.print("City:");
-			city=reader.next();
+			city=reader.nextLine();
 			System.out.print("State:");
-			state=reader.next();
+			state=reader.nextLine();
 			System.out.print("Zip:");
-			zip=reader.next();
+			zip=reader.nextLine();
 			System.out.print("Email:");
-			email=reader.next();
+			email=reader.nextLine();
 			System.out.print("Phone Number:");
-			phoneNumber=reader.next();
+			phoneNumber=reader.nextLine();
 			
-			contact[i]=new AddressBookMain();
-			contact[i].readContactDetails(firstName, lastName, address, city, state, email, zip, phoneNumber);
+			contact[i]=new AddressBookMain(firstName, lastName, address, city, state, email, zip, phoneNumber);
 		}
 		reader.close();
-		reader1.close();
 		for(int i=0;i<totalContacts;i++)
 		{
-			contact[i].displayContactDetails(firstName, lastName, address, city, state, email, zip, phoneNumber);
+			contact[i].displayContactDetails();
 		}
 	}
 }
