@@ -49,9 +49,9 @@ public class AddressBookMain
 		int i=0,totalContacts=0,choice=1;
 		String firstName="",lastName="",address="",city="",state="",email="",zip="",phoneNumber="";
 		AddressBookMain [] contact=new AddressBookMain[10];
-		while(choice!=4)
+		while(choice!=5)
 		{
-			System.out.println("Enter choice to\n1.Enter Contact\n2.Edit Contact\n3.Display Contacts\n4.Delete\n5.Exit");
+			System.out.println("Enter choice to\n1.Enter Contact\n2.Edit Contact\n3.Display Contacts\n4.Delete Contact\n5.Exit");
 			choice=reader.nextInt();
 			reader.nextLine();
 			switch(choice)
@@ -126,7 +126,30 @@ public class AddressBookMain
 							contact[i].displayContactDetails();
 					   }
 					   break;
-				case 4:
+				case 4:if(totalContacts==0)
+					   {
+							System.out.println("There are no contacts to delete");
+					   }
+					   else
+					   {
+						   System.out.println("Enter new First name");
+				   		   String deleteName=reader.nextLine();
+				   		   for(i=0;i<totalContacts;i++)
+				   		   {
+				   			   if(deleteName.compareTo(contact[i].firstName)==0)
+				   			   {
+				   				   System.out.println("Deleted Contact:");
+				   				   contact[i].displayContactDetails();
+				   				   for(int j=i+1;j<totalContacts;j++)
+				   					   contact[i]=contact[j];
+				   				   totalContacts--;
+				   			   }
+				   			   else
+				   				   System.out.println("Enter First Name that exists in the record");
+				   		   }
+					   }
+					   break;
+				case 5:
 				default:System.exit(0);
 			}
 		}
