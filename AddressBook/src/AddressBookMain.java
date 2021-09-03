@@ -51,7 +51,7 @@ public class AddressBookMain
 		AddressBookMain [] contact=new AddressBookMain[10];
 		while(choice!=4)
 		{
-			System.out.println("Enter choice to\n1.Enter Contact\n2.Edit Contact\n3.Display Contacts\n4.Exit");
+			System.out.println("Enter choice to\n1.Enter Contact\n2.Edit Contact\n3.Display Contacts\n4.Delete\n5.Exit");
 			choice=reader.nextInt();
 			reader.nextLine();
 			switch(choice)
@@ -88,48 +88,35 @@ public class AddressBookMain
 					   		+ "5.State\n6.Email\n7.Zip\n8.PhoneNumber");
 					   int field=reader.nextInt();
 					   reader.nextLine();
-					   if(field==1)
+					   switch(field)
 					   {
-						   System.out.println("Enter new First name");
-						   contact[contactNumber].firstName=reader.nextLine();
+					   	case 1:System.out.println("Enter new First name");
+					   		   contact[contactNumber].firstName=reader.nextLine();
+					   		   break;
+					   	case 2:System.out.println("Enter new Last name");
+					   		   contact[contactNumber].lastName=reader.nextLine();
+					   		   break;
+					   	case 3:System.out.println("Enter new Address");
+						       contact[contactNumber].address=reader.nextLine();
+						       break;
+					   	case 4:System.out.println("Enter new City name");
+						       contact[contactNumber].city=reader.nextLine();
+						       break;
+					   	case 5:System.out.println("Enter new City name");
+						       contact[contactNumber].state=reader.nextLine();
+						       break;
+					   	case 6:System.out.println("Enter new Email address");
+						       contact[contactNumber].email=reader.nextLine();
+						       break;
+					   	case 7:System.out.println("Enter new ZIP code");
+						      contact[contactNumber].zip=reader.nextLine();
+						      break;
+					   	case 8:System.out.println("Enter new Phone number");
+					   		   contact[contactNumber].phoneNumber=reader.nextLine();
+						       break;
+					   	default:System.out.println("Enter a valid field");
+					   			break;
 					   }
-					   else if(field==2)
-					   {
-						   System.out.println("Enter new Last name");
-						   contact[contactNumber].lastName=reader.nextLine();
-					   } 
-					   else if(field==3)
-					   {
-						   System.out.println("Enter new Address");
-						   contact[contactNumber].address=reader.nextLine();
-					   }
-					   else if(field==4)
-					   {
-						   System.out.println("Enter new City name");
-						   contact[contactNumber].city=reader.nextLine();
-					   }
-					   else if(field==5)
-					   {
-						   System.out.println("Enter new City name");
-						   contact[contactNumber].state=reader.nextLine();
-					   }
-					   else if(field==6)
-					   {
-						   System.out.println("Enter new Email address");
-						   contact[contactNumber].email=reader.nextLine();
-					   }
-					   else if(field==7)
-					   {
-						   System.out.println("Enter new ZIP code");
-						   contact[contactNumber].zip=reader.nextLine();
-					   }
-					   else if(field==8)
-					   {
-						   System.out.println("Enter new Phone number");
-						   contact[contactNumber].phoneNumber=reader.nextLine();
-					   }
-					   else
-						   System.out.println("Enter a valid field");
 					   System.out.print("Updated ");
 					   contact[contactNumber].displayContactDetails();
 					   break;
