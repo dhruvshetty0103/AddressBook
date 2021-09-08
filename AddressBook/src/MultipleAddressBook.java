@@ -10,7 +10,7 @@ public class MultipleAddressBook
 		case 1:addressBookName.readContacts();				//add a new contact into address book
 			   break;
 		
-		case 2:addressBookName.editContact();				//edit existing contact							
+		case 2:addressBookName.editContact();				//edit existing contact
 			   break;
 		
 		case 3:addressBookName.deleteContact();				//delete the preferred contact
