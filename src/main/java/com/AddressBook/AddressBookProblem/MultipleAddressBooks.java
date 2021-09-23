@@ -1,7 +1,6 @@
 package com.AddressBook.AddressBookProblem;
+import java.util.*;
 
-import java.util.Hashtable;
-import java.util.Scanner;
 public class MultipleAddressBooks
 {
 	static String addressBookName;
@@ -40,7 +39,7 @@ public class MultipleAddressBooks
 			while(true) //it repeats till the user wants to end
 			{
 				System.out.println("Enter your choice\n1.Add Contact\n2.Edit Contact\n3.Delete Contact\n4.Display Address Book\n"
-						+ "5.Create Another Address Book\n6.Exit"); //options for different actions
+						+ "5.Create Another Address Book\n6.Search Person\n7.Exit"); //options for different actions
 				choice=reader.nextInt();
 				reader.nextLine();
 				if(choice==5)  //to create a new address book
@@ -50,7 +49,19 @@ public class MultipleAddressBooks
 					AddressBookMain object1=new AddressBookMain();  // a new address book object is created
 					multipleAddressBook.put(addressBookName, object1);
 				}
-				else if(choice==6)				//to exist from the program
+				else if(choice==6)
+				{
+				    System.out.println("Enter the name of city or state");
+				    String place=reader.next();
+				    System.out.println("Persons whose state or city is "+place);
+				    for(Map.Entry<String, AddressBookMain> entry : multipleAddressBook.entrySet())
+				    {
+				        AddressBookMain object1=entry.getValue();
+				        object1.search(place);
+				    }
+				      
+				}
+				else if(choice==7)				//to exist from the program
 					System.exit(0);
 				else
 				{

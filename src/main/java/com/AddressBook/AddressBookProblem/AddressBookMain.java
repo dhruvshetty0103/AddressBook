@@ -183,4 +183,18 @@ public class AddressBookMain
 			return false;
 	}
 
+	/* Method to search a particular contact based on city or state
+	 */
+    public void search(String place) 
+    {
+        for (int j=0;j<contact.size();j++)
+        {   
+            AddressBookMain object=contact.get(j);
+            if(object.city.equals(place)||object.state.equals(place))
+            {
+                System.out.println(object.firstName+" "+object.lastName);  
+            }
+        }    
+    }
+	
 }
