@@ -3,8 +3,8 @@
 .classpath
 .project
 pom.xml
-AddressBook/src/main/java/com/moodanalyser/
-AddressBook/src/test/java/com/moodanalyser/
+/src/main/java/com/moodanalyser/
+/src/test/java/com/moodanalyser/
 README.md
 
 # Compiled class file
