@@ -45,8 +45,8 @@ public class MultipleAddressBooks
 						+ "4.Display Address Book\n"
 						+ "5.Create Another Address Book\n"
 						+ "6.Search Person\n"
-						+ "7.view person by state\n"
-						+ "8.view person by city\n"
+						+ "7.View person by state\n"
+						+ "8.View person by city\n"
 						+ "9.Exit"); //options for different actions
 				choice=reader.nextInt();
 				reader.nextLine();
@@ -70,7 +70,7 @@ public class MultipleAddressBooks
 				      
 				}
 				//View person from a state
-				else if(choice == 9)
+				else if(choice == 7)
 				{
 					System.out.println("Enter the name of state");
 					String state=reader.next();
@@ -83,7 +83,7 @@ public class MultipleAddressBooks
 
 				}
 				//View persons from a city
-				else if(choice == 10)
+				else if(choice == 8)
 				{
 					System.out.println("Enter the name of city");
 					String city=reader.next();
