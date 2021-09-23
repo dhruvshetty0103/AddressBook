@@ -34,7 +34,6 @@ public class MultipleAddressBooks
 		System.out.println("Enter name for first address book");
 		addressBookName=reader.nextLine();
 		multipleAddressBook.put(addressBookName, object);
-		reader.nextLine();
 		int choice=1;
 		while(choice!=6)
 		{
