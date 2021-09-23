@@ -42,22 +42,26 @@ public class AddressBookMain
 		System.out.print("First Name:");
 		firstName=reader.nextLine();
 		System.out.print("Last Name:");
-		lastName=reader.nextLine();
-		System.out.print("Address:");
-		address=reader.nextLine();
-		System.out.print("City:");
-		city=reader.nextLine();
-		System.out.print("State:");
-		state=reader.nextLine();
-		System.out.print("Zip:");
-		zip=reader.nextLine();
-		System.out.print("Email:");
-		email=reader.nextLine();
-		System.out.print("Phone Number:");
-		phoneNumber=reader.nextLine();
+		if(duplicateCheck(firstName)==false)
+		{
+			lastName=reader.nextLine();
+			System.out.print("Address:");
+			address=reader.nextLine();
+			System.out.print("City:");
+			city=reader.nextLine();
+			System.out.print("State:");
+			state=reader.nextLine();
+			System.out.print("Zip:");
+			zip=reader.nextLine();
+			System.out.print("Email:");
+			email=reader.nextLine();
+			System.out.print("Phone Number:");
+			phoneNumber=reader.nextLine();
 
-		contact.add(new AddressBookMain(firstName, lastName, address, city, state, email, zip, phoneNumber));
-		totalContacts++;
+			contact.add(new AddressBookMain(firstName, lastName, address, city, state, email, zip, phoneNumber));
+			totalContacts++;
+		}
+		
 	}
 
 	//function editContact to edit contact details
