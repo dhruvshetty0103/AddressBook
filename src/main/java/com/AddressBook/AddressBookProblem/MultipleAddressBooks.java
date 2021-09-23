@@ -38,8 +38,16 @@ public class MultipleAddressBooks
 		{
 			while(true) //it repeats till the user wants to end
 			{
-				System.out.println("Enter your choice\n1.Add Contact\n2.Edit Contact\n3.Delete Contact\n4.Display Address Book\n"
-						+ "5.Create Another Address Book\n6.Search Person\n7.Exit"); //options for different actions
+				System.out.println("Enter your choice\n"
+						+ "1.Add Contact\n"
+						+ "2.Edit Contact\n"
+						+ "3.Delete Contact\n"
+						+ "4.Display Address Book\n"
+						+ "5.Create Another Address Book\n"
+						+ "6.Search Person\n"
+						+ "7.view person by state\n"
+						+ "8.view person by city\n"
+						+ "9.Exit"); //options for different actions
 				choice=reader.nextInt();
 				reader.nextLine();
 				if(choice==5)  //to create a new address book
@@ -61,7 +69,33 @@ public class MultipleAddressBooks
 				    }
 				      
 				}
-				else if(choice==7)				//to exist from the program
+				//View person from a state
+				else if(choice == 9)
+				{
+					System.out.println("Enter the name of state");
+					String state=reader.next();
+					System.out.println("Persons whose state "+state);
+					for(Map.Entry<String, AddressBookMain> entry : multipleAddressBook.entrySet())
+					{
+						AddressBookMain object1=entry.getValue();
+						object1.viewPersonByState(state);
+					}
+
+				}
+				//View persons from a city
+				else if(choice == 10)
+				{
+					System.out.println("Enter the name of city");
+					String city=reader.next();
+					System.out.println("Persons whose city "+city);
+					for(Map.Entry<String, AddressBookMain> entry : multipleAddressBook.entrySet())
+					{
+						AddressBookMain object1=entry.getValue();
+						object1.viewPersonByCity(city);
+					}
+				}
+				
+				else if(choice==9)				//to exit from the program
 					System.exit(0);
 				else
 				{

@@ -1,6 +1,5 @@
 package com.AddressBook.AddressBookProblem;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 /* Class Address Book to read contact details and displaying it
  * @param firstName to store first name of contact
  * @param lastName to store last name of contact
@@ -196,5 +195,42 @@ public class AddressBookMain
             }
         }    
     }
+    
+    //To display persons from a specific state
+    public void viewPersonByState(String state) 
+    {
+		Map<String,String> stateMap = new HashMap<String,String> ();
+		for (int j=0;j<contact.size();j++)
+		{   
+			AddressBookMain object=contact.get(j);
+			stateMap.put(object.firstName,object.state);
+		}
+		for(Map.Entry m: stateMap.entrySet()) 
+		{
+			if(m.getValue().equals(state)) 
+			{
+				System.out.println(m.getKey());
+			}
+		}
+	}
+
+    
+    //To display persons from a specific city
+	public void viewPersonByCity(String city) 
+	{
+		Map<String,String> cityMap = new HashMap<String,String> ();
+		for (int j=0;j<contact.size();j++)
+		{   
+			AddressBookMain object=contact.get(j);
+			cityMap.put(object.firstName,object.city);
+		}
+		for(Map.Entry m: cityMap.entrySet())
+		{
+			if(m.getValue().equals(city)) 
+			{
+				System.out.println(m.getKey());
+			}
+		}
+	}
 	
 }
