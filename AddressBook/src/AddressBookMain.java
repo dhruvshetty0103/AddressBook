@@ -9,19 +9,19 @@ import java.util.*;
  * @param zip to store ZIP of contact
  * @param phoneNumber to phone number name of contact
  */
-public class AddressBookMain 
+public class AddressBookMain
 {
 	//collection class array list is used to store different contacts in address book
 	public static ArrayList<AddressBookMain> contact=new ArrayList<AddressBookMain>();
 	public String firstName,lastName,address,city,state,email,zip,phoneNumber;
 	Scanner reader=new Scanner(System.in);
 	int i=0,totalContacts=0,choice=1;
-	
+
 	public AddressBookMain()
 	{
 		System.out.println("Welcome to Address Book Program");
 	}
-	
+
 	public AddressBookMain(String firstName,String lastName,String address,String city,String state,String email,String zip,String phoneNumber)
 	{
 		this.firstName=firstName;
@@ -57,7 +57,7 @@ public class AddressBookMain
 		contact.add(new AddressBookMain(firstName, lastName, address, city, state, email, zip, phoneNumber));
 		totalContacts++;
 	}
-	
+
 	//function editContact to edit contact details
 	void editContact()
 	{
@@ -101,7 +101,7 @@ public class AddressBookMain
 		   System.out.print("Updated ");
 		   contact.get(contactNumber).displayContactDetails();
 	}
-	
+
 	//function displayContactDetails to display contact details
 	void displayContactDetails()
 	{
@@ -134,7 +134,7 @@ public class AddressBookMain
 	    	}
 		}
 	}
-	
+
 	void deleteContact()
 	{
 		if(totalContacts==0)
