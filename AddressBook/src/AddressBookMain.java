@@ -12,7 +12,7 @@ import java.util.*;
 public class AddressBookMain 
 {
 	//collection class array list is used to store different contacts in address book
-	public ArrayList<AddressBookMain> contact=new ArrayList<AddressBookMain>();
+	public static ArrayList<AddressBookMain> contact=new ArrayList<AddressBookMain>();
 	public String firstName,lastName,address,city,state,email,zip,phoneNumber;
 	Scanner reader=new Scanner(System.in);
 	int i=0,totalContacts=0,choice=1;
