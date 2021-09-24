@@ -196,41 +196,60 @@ public class AddressBookMain
         }    
     }
     
-    //To display persons from a specific state
-    public void viewPersonByState(String state) 
+    /* Method to view a particular contact based on state
+     */
+    public void viewPersonByState() 
     {
-		Map<String,String> stateMap = new HashMap<String,String> ();
-		for (int j=0;j<contact.size();j++)
-		{   
-			AddressBookMain object=contact.get(j);
-			stateMap.put(object.firstName,object.state);
-		}
-		for(Map.Entry m: stateMap.entrySet()) 
-		{
-			if(m.getValue().equals(state)) 
-			{
-				System.out.println(m.getKey());
-			}
-		}
-	}
-
+        Map<String,List<String>> stateMap = new HashMap<> ();
+        for (int j=0;j<contact.size();j++)
+        {   
+            AddressBookMain object=contact.get(j);
+            if(stateMap.containsKey(object.state))
+            {
+                List<String> temp= stateMap.get(object.state);
+                temp.add(object.firstName);
+                stateMap.put(object.state, temp);
+            }
+            else
+            {
+                List<String> temp=new ArrayList<>();
+                temp.add(object.firstName);
+                stateMap.put(object.state, temp);
+            }
+        }
+        for(Map.Entry m: stateMap.entrySet()) 
+        {    
+                System.out.println(m.getKey()+" : "+m.getValue());
+                System.out.println("There are "+((List<String>) m.getValue()).size()+" persons in state "+m.getKey());
+            }
+        }
     
-    //To display persons from a specific city
-	public void viewPersonByCity(String city) 
-	{
-		Map<String,String> cityMap = new HashMap<String,String> ();
-		for (int j=0;j<contact.size();j++)
-		{   
-			AddressBookMain object=contact.get(j);
-			cityMap.put(object.firstName,object.city);
-		}
-		for(Map.Entry m: cityMap.entrySet())
-		{
-			if(m.getValue().equals(city)) 
-			{
-				System.out.println(m.getKey());
-			}
-		}
-	}
+    /* Method to view a particular contact based on city
+     */
+    public void viewPersonByCity()
+    {
+        Map<String,List<String>> cityMap = new HashMap<> ();
+        for (int j=0;j<contact.size();j++)
+        {   
+            AddressBookMain object=contact.get(j);
+            if(cityMap.containsKey(object.city))
+            {
+                List<String> temp= cityMap.get(object.city);
+                temp.add(object.firstName);
+                cityMap.put(object.city, temp);
+            }
+            else
+            {
+                List<String> temp=new ArrayList<>();
+                temp.add(object.firstName);
+                cityMap.put(object.city, temp);
+            }
+        }
+        for(Map.Entry m: cityMap.entrySet()) 
+        {
+                System.out.println(m.getKey()+" : "+m.getValue());
+                System.out.println("There are "+((List<String>) m.getValue()).size()+" persons in city "+m.getKey());
+        }
+    }
 	
 }
